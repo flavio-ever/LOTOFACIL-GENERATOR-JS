@@ -1,0 +1,19 @@
+{
+  "name": "LotoFacil",
+  "version": "1.0.0",
+  "description": "gerador de lotofacil",
+  "main": "loto.js",
+  "scripts": {
+    "dev": "nodemon src/app",
+    "dev:debug": "nodemon --inspect src/app",
+    "build": "sucrase ./src -d ./dist --transforms class, imports",
+    "start": "node ./dist/app"
+  },
+  "author": "Flavio Ever",
+  "license": "ISC",
+  "dependencies": {
+    "date-fns": "^2.23.0",
+    "nodemon": "^2.0.12",
+    "sucrase": "^3.20.1"
+  }
+}

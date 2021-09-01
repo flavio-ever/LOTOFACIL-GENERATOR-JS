@@ -1,0 +1,10 @@
+------------------------------
+| GERADOR LOTO FACIL 1.0.0
+|-----------------------------
+| - Números Gerados: 1
+| - Config Parâmetrizada: [{"sequenceStep":3,"maxSequenceStep":6}]
+| - Tempo: 1 segundos
+------------------------------
+
+
+
