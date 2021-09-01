@@ -1,8 +1,8 @@
 {
-  "name": "LotoFacil",
+  "name": "lotogenerator",
   "version": "1.0.0",
-  "description": "gerador de lotofacil",
-  "main": "loto.js",
+  "description": "LotoGenerator",
+  "main": "app.js",
   "scripts": {
     "dev": "nodemon src/app",
     "dev:debug": "nodemon --inspect src/app",

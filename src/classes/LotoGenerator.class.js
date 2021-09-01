@@ -1,16 +1,18 @@
 import fs from 'fs';
 import { format } from 'date-fns';
 
-export default class LotoFacil {
-  sequences = Array.from({length: 25}, (_, i) => i + 1); // Generate array with 25 positions
+export default class LotoGenerator {
+  sequences = []; // Generate array with 25 positions
 
   randoms = [];
 
-  async init(params) {
+  async init(params, maxRangeNumbers = 25, maxNumbersPrizeDrawn = 15) {
+    this.sequences = await this.getMaxRangeNumbers(maxRangeNumbers);
+
     // Generate sequence of numbers (not remove)
     await this.generateAndCleanSequences(params);
 
-    while (this.randoms.length < 15) {
+    while (this.randoms.length < maxNumbersPrizeDrawn) {
       const rdnNum = await this.getRndSequences();
       if (rdnNum) {
         this.randoms.push(rdnNum);
@@ -20,11 +22,20 @@ export default class LotoFacil {
     // Attention! Possible Stack Error
     const isValidIntegritySequence = await this.isValidIntegritySequence(this.data());
     if(isValidIntegritySequence) {
-      this.sequences = Array.from({length: 25}, (_, i) => i + 1);  // Generate array with 25 positions
+      this.sequences = await this.getMaxRangeNumbers(maxRangeNumbers);  // Generate array with 25 positions
       this.randoms = [];
 
       await this.init(params);
     }
+  }
+
+  /**
+   *
+   * @param {*} num
+   * @returns
+   */
+  async getMaxRangeNumbers(num) {
+    return Array.from({length: num}, (_, i) => i + 1);
   }
 
   /**
@@ -237,7 +248,7 @@ export default class LotoFacil {
 
     stream.once('open', function (_) {
       stream.write('------------------------------\n');
-      stream.write('| GERADOR LOTO FACIL 1.0.0\n');
+      stream.write('| LOTO GENERATOR 1.0.0\n');
       stream.write('|-----------------------------\n');
       stream.write(`| - Números Gerados: ${randoms.length}\n`);
       stream.write(`| - Config Parâmetrizada: ${JSON.stringify(config)}\n`);
