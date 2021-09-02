@@ -1,7 +1,7 @@
+require('dotenv/config');
+
 import { performance } from 'perf_hooks';
 import * as Classes from './classes';
-
-let randoms = [];
 
 /**
  * sequenceStep: 3
@@ -12,6 +12,8 @@ let randoms = [];
  */
 
 (async (config, maxPrizeDranLn, maxRangeNumbers, maxNumbersPrizeDrawn) => {
+  let randoms = [];
+
 
   const t1 = performance.now();
   for (let i = 0; i < maxPrizeDranLn; i++) {
@@ -34,4 +36,5 @@ let randoms = [];
   // Write logs
   await new Classes.LotoGenerator().print(randoms, config, t1, t2);
 
-})([{ sequenceStep: 3, maxSequenceStep: 5 }], 3, 25, 5);
+})([{ sequenceStep: 3, maxSequenceStep: 5 }], 3, 25, 15);
+
