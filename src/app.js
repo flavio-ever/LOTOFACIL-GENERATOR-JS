@@ -37,9 +37,13 @@ import * as Api from './api';
 /**
  * sequenceStep: 3
  * > Randomico de 3, ex: 20, 21, 22, [23], 24, 25, 26 ou [23], 24, 25, 26 ou 20, 21, 22, [23]
- * --------------------------------------------------------------------------------------------
  * maxSequenceStep: 6
  * > Maximo de 6 digitos, porque talvez a operação acima estoure as sequencias, quanto menor o valor melhor.
+ *
+ * OU
+ *
+ * ([], 30, 25, 15) - Se quiser sorteios sem sequencia de números especificos
+ *
  * --------------------------------------------------------------------------------------------
  * 30 - Quantidade de sorteios gerados
  * 25 - Quantidade máxima de números para sortear
