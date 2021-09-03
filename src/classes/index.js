@@ -1,3 +1,3 @@
-import LotoGenerator from './LotoGenerator.class';
+import LotoGenerator from './LotoGenerator';
 
 export { LotoGenerator };

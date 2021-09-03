@@ -115,6 +115,7 @@ export default class LotoGenerator {
 
   /**
    *
+   * @param {*} type
    * @returns
    */
   async getRndSequences(type = 'aleatory' || 'cousins') {
@@ -197,7 +198,7 @@ export default class LotoGenerator {
 
       this.randoms.push(...rndNumbSequences);
 
-      console.log("Sem redundancia:", rndNumbSequences);
+      // console.log("Sem redundancia:", rndNumbSequences);
 
     } catch (error) {
       console.warn(error);

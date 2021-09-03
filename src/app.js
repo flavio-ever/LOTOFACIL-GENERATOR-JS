@@ -2,6 +2,8 @@ require('dotenv/config');
 
 import { performance } from 'perf_hooks';
 import * as Classes from './classes';
+import * as Api from './api';
+
 
 /**
  * sequenceStep: 3
@@ -31,6 +33,7 @@ import * as Classes from './classes';
       }
     });
   }
+
   const t2 = performance.now();
 
   // Write logs
@@ -38,3 +41,17 @@ import * as Classes from './classes';
 
 })([{ sequenceStep: 3, maxSequenceStep: 5 }], 3, 25, 15);
 
+// TESTES
+
+// const response = await new Api.LotoFacilApi().getAllLotofacil();
+//  let teste = [];
+//  for (let { dezenas } of response?.data) {
+//    for(let newDezenas of randoms) {
+//      if (dezenas.every((v, i) => v === String(newDezenas[i]))) {
+//        teste.push(dezenas);
+//      }
+//    }
+//  }
+//  console.log(teste, response.data.length);
+// Write logs
+// await new Classes.LotoGenerator().print(randoms, config, t1, t2);
