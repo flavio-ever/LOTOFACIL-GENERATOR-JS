@@ -5,13 +5,6 @@ import * as Classes from './classes';
 import * as Api from './api';
 
 
-/**
- * sequenceStep: 3
- * > Randomico de 3, ex: 20, 21, 22, [23], 24, 25, 26 ou [23], 24, 25, 26 ou 20, 21, 22, [23]
- * -------------------------------------------------------------------------------------------------------
- * maxSequenceStep: 6
- * > Maximo de 6 digitos, porque talvez a operação acima estoure as sequencias, quanto menor o valor melhor.
- */
 
 (async (config, maxPrizeDranLn, maxRangeNumbers, maxNumbersPrizeDrawn) => {
   let randoms = [];
@@ -39,10 +32,28 @@ import * as Api from './api';
   // Write logs
   await new Classes.LotoGenerator().print(randoms, config, t1, t2);
 
-})([{ sequenceStep: 3, maxSequenceStep: 5 }], 3, 25, 15);
 
-// TESTES
 
+/**
+ * sequenceStep: 3
+ * > Randomico de 3, ex: 20, 21, 22, [23], 24, 25, 26 ou [23], 24, 25, 26 ou 20, 21, 22, [23]
+ * --------------------------------------------------------------------------------------------
+ * maxSequenceStep: 6
+ * > Maximo de 6 digitos, porque talvez a operação acima estoure as sequencias, quanto menor o valor melhor.
+ * --------------------------------------------------------------------------------------------
+ * 30 - Quantidade de sorteios gerados
+ * 25 - Quantidade máxima de números para sortear
+ * 15 - Quantidade máxima de números sorteados
+ */
+
+})([{ sequenceStep: 3, maxSequenceStep: 5 }], 30, 25, 15);
+
+
+
+
+
+// TESTES DE CONSULTA NA LOTERICA
+// ----------------------------------------------------------------
 // const response = await new Api.LotoFacilApi().getAllLotofacil();
 //  let teste = [];
 //  for (let { dezenas } of response?.data) {
